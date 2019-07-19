@@ -245,6 +245,12 @@ int default_config(int argc, char *argv[])
     current_config.servo[SERVO_TAIL_HORIZONTAL].rot_count = 10666; // 1回転あたりのカウント (近藤科学 ICS 3.5は10666)
     current_config.servo[SERVO_TAIL_HORIZONTAL].invert = 1;
     // 舵の設定
+    if(current_config.servo[SERVO_TAIL_HORIZONTAL].trim > 762){
+        SERVO_DEG = SERVO_DEG + 10.00
+    };
+        if(current_config.servo[SERVO_TAIL_HORIZONTAL].trim < 262){
+        SERVO_DEG = SERVO_DEG - 10.00
+    };
     current_config.servo[SERVO_TAIL_HORIZONTAL].trim = SERVO_DEG(12.00);
     current_config.servo[SERVO_TAIL_HORIZONTAL].range = SERVO_DEG(120.00);
     current_config.servo[SERVO_TAIL_HORIZONTAL].limit_upper = SERVO_DEG( 110.00);
